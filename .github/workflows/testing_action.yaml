@@ -14,12 +14,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Correct format: owner/repo@ref
+      uses: actions/checkout@v3  # This action will be compatible with Node.js 20
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3  # Correct format: owner/repo@ref
+      uses: actions/setup-node@v3  # Use Node.js 20 explicitly to avoid deprecation warnings
       with:
-        node-version: '20'  # Specify the Node.js version you want
+        node-version: '20'  # Set Node.js version to 20
 
     - name: Install dependencies
       run: npm install
