@@ -1,0 +1,22 @@
+name: Testing Action
+on: push
+jobs:
+  Run node app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'v8.11.3'
+      - name: Install specific npm version
+        uses: npm install -g npm@6.1.0
+      - name: check version of npm
+        uses: npm --version
+      - name: RUN test
+        uses: npm test
+      - name: Run Code Coverage
+        uses: npm run coverage
+      - name: Run Application
+        uses: npm start
+      - name: Verify Application is Running
+        uses: curl --retry 5 --retry-delay 10 --retry-connrefused http://localhost:3000
