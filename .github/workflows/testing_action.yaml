@@ -4,10 +4,13 @@ jobs:
   Run_node_app:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout code
+        uses: actions/checkout@v3
       - name: install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'v8.11.3'
+          node-version: '16'
+          
       - name: Install specific npm version
         uses: npm install -g npm@6.1.0
       - name: check version of npm
