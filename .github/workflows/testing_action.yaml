@@ -1,7 +1,7 @@
 name: Testing Action
 on: push
 jobs:
-  Run node app:
+  Run_node_app:
     runs-on: ubuntu-latest
     steps:
       - name: install Node.js
